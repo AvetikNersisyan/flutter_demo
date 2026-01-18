@@ -1,16 +1,36 @@
-# m_one
+## Overview
 
-A new Flutter project.
+The app implements a complete **local authentication flow** (sign up, login, and session persistence) using **MobX** for reactive state management and **SharedPreferences** for local storage.
 
-## Getting Started
+The focus of this project is not only functionality, but also **code structure**, **scalability**, and **UI polish**.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Architecture
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+The project is structured using a **layered architecture**:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **UI (Presentation)**  
+  Screens and widgets responsible only for rendering state.
+
+- **State (MobX Stores)**  
+  Manages application and authentication state in a reactive way.
+
+- **Data Layer**  
+  Handles local storage access and authentication logic via repositories.
+
+- **Models & Utils**  
+  Domain models and reusable helper utilities.
+
+This separation keeps business logic out of widgets and makes the app easy to extend or connect to a real backend in the future.
+
+---
+
+## Why this approach
+
+I intentionally avoided shortcuts such as putting logic inside widgets or directly accessing storage from the UI. Instead, I treated this as a small but realistic mobile application, focusing on:
+
+- **Maintainability**
+- **Predictable state flow**
+- **Responsive design**
+- **Clean separation of concerns**
